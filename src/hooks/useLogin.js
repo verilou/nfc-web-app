@@ -1,13 +1,15 @@
-import { useState } from 'react';
-import { submitLogin } from '../data/login';
-import handleAxiosError from '../utils/handleAxiosError';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { redirect, useNavigate } from 'react-router-dom';
 
-const useLogin = context => {
+import handleAxiosError from '../utils/handleAxiosError';
+import { submitLogin } from '../data/login';
+
+const useLogin = ({ user, setUser }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [wrongPassword, setWrongPassword] = useState(false);
-    const navigation = useNavigate();
+    const navigate = useNavigate();
+
     const handleEmail = e => {
         setEmail(e.target.value);
     };
@@ -25,8 +27,8 @@ const useLogin = context => {
                 setWrongPassword(false);
             }
 
-            context.setUser(response?.data);
-            navigation('/profile');
+            setUser(response?.data);
+            redirect('/profile');
         } catch (error) {
             const errorMessage = handleAxiosError(error);
             if (errorMessage.status === 404) {
@@ -34,6 +36,10 @@ const useLogin = context => {
             }
         }
     };
+
+    useEffect(() => {
+        if (user.id) navigate('/profile');
+    }, []);
 
     return {
         handleLogin,

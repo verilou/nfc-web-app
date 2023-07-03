@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LOGIN_URL } from '../constant/api';
+import { LOGIN_URL, PROFILE_URL } from '../constant/api';
 
 export const submitLogin = (email, password) =>
     axios.post(
@@ -8,5 +8,7 @@ export const submitLogin = (email, password) =>
             email,
             password,
         },
-        { withCredentials: true, maxRedirects: 0 },
+        { withCredentials: true },
     );
+
+export const getUserLoggedIn = () => axios.get(PROFILE_URL, { withCredentials: true });

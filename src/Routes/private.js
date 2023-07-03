@@ -1,16 +1,11 @@
 import React, { useContext } from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { Auth } from '../context/auth';
 
-const PrivateRoute = ({ children }) => {
+const PrivateRoute = () => {
     const context = useContext(Auth);
     const location = useLocation();
-    return context.user.id ? children : <Navigate to="/login" state={{ from: location }} />;
-};
-
-PrivateRoute.propTypes = {
-    children: PropTypes.element.isRequired,
+    return context.user.id ? <Outlet /> : <Navigate to="/login" state={{ from: location }} />;
 };
 
 export default PrivateRoute;
