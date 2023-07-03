@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import handleAxiosError from '../utils/handleAxiosError';
 import { submitLogin } from '../data/login';
@@ -28,7 +28,7 @@ const useLogin = ({ user, setUser }) => {
             }
 
             setUser(response?.data);
-            redirect('/profile');
+            navigate('/profile');
         } catch (error) {
             const errorMessage = handleAxiosError(error);
             if (errorMessage.status === 404) {

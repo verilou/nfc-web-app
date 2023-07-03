@@ -8,9 +8,9 @@ import PrivateRoute from './private';
 import { Auth } from '../context/auth';
 
 const RouteList = () => {
-    const { user } = useContext(Auth);
+    const { hasAuthenticated } = useContext(Auth);
 
-    if (!user.id) {
+    if (!hasAuthenticated) {
         return <div>Loading...</div>;
     }
 

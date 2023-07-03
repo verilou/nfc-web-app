@@ -7,9 +7,9 @@ import useAuth from './hooks/useAuth';
 import { Auth } from './context/auth';
 
 function App() {
-    const { user, setUser } = useAuth();
+    const { user, setUser, hasAuthenticated } = useAuth();
     return (
-        <Auth.Provider value={{ user, setUser }}>
+        <Auth.Provider value={{ user, setUser, hasAuthenticated }}>
             <Router>
                 <RouteList />
             </Router>

@@ -1,3 +1,3 @@
 import { createContext } from 'react';
 
-export const Auth = createContext({ user: {}, setProfile: () => {} });
+export const Auth = createContext({ user: {}, setProfile: () => {}, hasAuthenticated: false });
