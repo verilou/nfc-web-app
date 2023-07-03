@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import useLogin from '../hooks/useLogin';
+import { Auth } from '../context/auth';
 
 const Login = () => {
-    const { handleLogin, handleEmail, handlePassword, email, password, wrongPassword } = useLogin();
+    const auth = useContext(Auth);
+    const { handleLogin, handleEmail, handlePassword, email, password, wrongPassword } = useLogin(auth);
     return (
         <form onSubmit={handleLogin}>
             <label>
