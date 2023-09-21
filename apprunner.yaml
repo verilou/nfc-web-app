@@ -7,7 +7,7 @@ build:
       - ls
       - ls src
       - npm i   
-      - npm run build                      
+      - npm start                      
 run:                   
   network:
     port: 3000
