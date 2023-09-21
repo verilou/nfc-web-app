@@ -1,10 +1,9 @@
 version: 1.0
-runtime: nodejs17
+runtime: nodejs16
 build:
-  commands:
-    pre-build:
-      - npm i     
+  commands: 
     build:
+      - npm i   
       - npm run build                      
 run:                   
   network:
