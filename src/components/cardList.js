@@ -2,6 +2,7 @@ import React from 'react';
 import useCardList from '../hooks/useCardList';
 import useCreateCard from '../hooks/useCreateCard';
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 const CardList = () => {
     const { cardList, setCardList } = useCardList();
@@ -9,7 +10,7 @@ const CardList = () => {
 
     return (
         <div>
-            <button onClick={createCard}>CreateCard</button>
+            <Button onClick={createCard}>CreateCard</Button>
             <ul>
                 {cardList.map(card => (
                     <li key={card.id}>

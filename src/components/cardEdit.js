@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+
 import useCard from '../hooks/useCard';
 import useCardContent from '../hooks/useCardContent';
-import { Link } from 'react-router-dom';
 
 const CardEdit = () => {
     const { card } = useCard();
@@ -27,7 +29,7 @@ const CardEdit = () => {
                 })}
             </select>
             <input type="text" value={newContentItem.value} onChange={handleChange('value')} />
-            <button onClick={handleSubmit}>Add new content</button>
+            <Button onClick={handleSubmit}>Add new content</Button>
         </div>
     );
 };
