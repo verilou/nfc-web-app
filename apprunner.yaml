@@ -6,8 +6,8 @@ build:
       - pwd
       - ls
       - ls src
-      - npm i   
-      - npm start                      
+      - npm ci
+      - npm run build                     
 run:                   
   network:
     port: 3000
