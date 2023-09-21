@@ -3,6 +3,8 @@ runtime: nodejs16
 build:
   commands: 
     build:
+      - pwd
+      - ls
       - npm i   
       - npm run build                      
 run:                   
