@@ -7,9 +7,8 @@ build:
       - ls
       - ls src
       - npm ci
-      - npm run build                     
 run:                   
   network:
     port: 3000
     env: APP_PORT           
-  command: serve -s build -l 4000
+  command: npm start
