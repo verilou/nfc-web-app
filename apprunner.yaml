@@ -5,6 +5,7 @@ build:
     build:
       - pwd
       - ls
+      - ls src
       - npm i   
       - npm run build                      
 run:                   
