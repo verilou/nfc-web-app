@@ -11,9 +11,8 @@ import PrivateRoute from './private';
 import { Auth } from '../context/auth';
 
 const RouteList = () => {
-    const { hasAuthenticated } = useContext(Auth);
-
-    if (!hasAuthenticated) {
+    const { hasTryAuthenticated } = useContext(Auth);
+    if (!hasTryAuthenticated) {
         return <div>Loading...</div>;
     }
 

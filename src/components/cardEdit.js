@@ -9,7 +9,6 @@ const CardEdit = () => {
     const { card } = useCard();
     const { cardContents, cardContentType, newContentItem, handleChange, handleSubmit } =
         useCardContent(card);
-
     return (
         <div>
             <Link to={`/card/${card.path}`}>{card.path}</Link>

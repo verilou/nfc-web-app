@@ -13,14 +13,14 @@ const handleAxiosError = error => {
         // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
         // http.ClientRequest in node.js
         return {
-            status: 500,
+            status: 400,
             message: error.request.responseText,
             error: error.request,
         };
     } else {
         // Something happened in setting up the request that triggered an Error
         return {
-            status: 500,
+            status: 400,
             message: error.message,
         };
     }

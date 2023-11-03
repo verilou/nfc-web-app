@@ -3,15 +3,15 @@ import { getUserLoggedIn } from '../data/login';
 
 const useAuth = () => {
     const [user, setUser] = useState({});
-    const [hasAuthenticated, setHasAuthenticated] = useState(false);
+    const [hasTryAuthenticated, setHasTryAuthenticated] = useState(false);
     useEffect(() => {
         const isLoggedIn = async () => {
             try {
                 const { data } = await getUserLoggedIn();
                 setUser(data);
-                setHasAuthenticated(true);
+                setHasTryAuthenticated(true);
             } catch (error) {
-                setHasAuthenticated(true);
+                setHasTryAuthenticated(true);
             }
         };
         isLoggedIn();
@@ -20,7 +20,7 @@ const useAuth = () => {
     return {
         user,
         setUser,
-        hasAuthenticated,
+        hasTryAuthenticated,
     };
 };
 
